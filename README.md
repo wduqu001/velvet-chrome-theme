@@ -1,6 +1,6 @@
 # Velvet Chrome — VS Code Theme
 
-Velvet Chrome is a minimal dark theme that pairs a unified chrome frame with crisp cyan-violet accents and warm amber highlights. It’s tuned for long sessions and clean syntax contrast across TypeScript, TSX, Python, SQL, Java, and Markdown.
+Velvet Chrome is a minimal dark theme that pairs a unified chrome frame with crisp cyan-violet accents and warm amber highlights. It's tuned for long sessions and clean syntax contrast across TypeScript, TSX, Python, SQL, Java, JSON, and Markdown.
 
 ## Highlights
 
