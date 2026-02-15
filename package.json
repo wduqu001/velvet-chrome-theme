@@ -1,0 +1,40 @@
+{
+  "name": "velvet-chrome-theme",
+  "displayName": "Velvet Chrome",
+  "description": "A minimal dark VS Code theme with a unified chrome frame and split cyan-violet accents.",
+  "version": "0.0.1",
+  "publisher": "wduqu001",
+  "author": "Willian Duque",
+  "license": "GPL-3.0-only",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wduqu001/vscode-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/wduqu001/vscode-theme/issues"
+  },
+  "homepage": "https://github.com/wduqu001/vscode-theme#readme",
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "vscode",
+    "color-theme",
+    "velvet",
+    "chrome"
+  ],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Velvet Chrome",
+        "uiTheme": "vs-dark",
+        "path": "./themes/my-theme.json"
+      }
+    ]
+  }
+}
