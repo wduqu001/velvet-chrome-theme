@@ -56,7 +56,3 @@ Suggestions and improvements are welcome. Please open an issue or submit a pull 
 ## License
 
 GNU GPLv3. See `LICENSE` for details.
-
-## Links
-
-- GitHub: https://github.com/wduqu001
