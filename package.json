@@ -8,12 +8,12 @@
   "license": "GPL-3.0-only",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wduqu001/vscode-theme"
+    "url": "https://github.com/wduqu001/velvet-chrome-theme"
   },
   "bugs": {
-    "url": "https://github.com/wduqu001/vscode-theme/issues"
+    "url": "https://github.com/wduqu001/velvet-chrome-theme/issues"
   },
-  "homepage": "https://github.com/wduqu001/vscode-theme#readme",
+  "homepage": "https://github.com/wduqu001/velvet-chrome-theme#readme",
   "categories": [
     "Themes"
   ],
@@ -31,9 +31,9 @@
   "contributes": {
     "themes": [
       {
-        "label": "Velvet Chrome",
+        "label": "Velvet chrome theme",
         "uiTheme": "vs-dark",
-        "path": "./themes/my-theme.json"
+        "path": "./themes/velvet-chrome-color-theme.json"
       }
     ]
   }
