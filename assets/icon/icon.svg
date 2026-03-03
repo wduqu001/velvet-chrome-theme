@@ -1,0 +1,22 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="chromeGradient" x1="256" y1="150" x2="256" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ECECEC"/>
+      <stop offset="0.5" stop-color="#CFA0FF"/>
+      <stop offset="1" stop-color="#74C6FF"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="64" fill="#191919"/>
+  <rect x="2" y="2" width="508" height="508" rx="62" stroke="#CFA0FF" stroke-width="4" fill="none"/>
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    fill="url(#chromeGradient)"
+    font-size="280"
+    font-family="sans-serif"
+    font-weight="bold">
+    VC
+  </text>
+</svg>
