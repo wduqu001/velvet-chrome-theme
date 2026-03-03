@@ -2,7 +2,7 @@
   "name": "velvet-chrome-theme",
   "displayName": "Velvet Chrome",
   "description": "A minimal dark VS Code theme with a unified chrome frame and split cyan-violet accents.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "willduque",
   "author": "Willian Duque",
   "license": "GPL-3.0-only",
