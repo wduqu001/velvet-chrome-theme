@@ -62,6 +62,19 @@ def contrast_ratio(fg, bg) -> float:
     return (l1 + 0.05) / (l2 + 0.05)
 
 
+def resolve_rgb(color_hex: str, fallback_bg_rgba):
+    """Resolve a theme color token into an RGB tuple.
+
+    If the color has transparency, it is alpha-blended over fallback_bg_rgba.
+    """
+    rgba = hex_to_rgba(color_hex)
+    if not rgba:
+        return None
+    if rgba[3] < 255:
+        return blend(rgba, fallback_bg_rgba)
+    return rgba[:3]
+
+
 def main() -> None:
     """Load theme colors and print contrast ratios for key UI pairs."""
     text = re.sub(r"//.*", "", THEME_PATH.read_text())
@@ -83,6 +96,7 @@ def main() -> None:
     ]
 
     editor_bg = colors.get("editor.background")
+    editor_bg_rgba = hex_to_rgba(editor_bg) if editor_bg else None
     results = []
 
     for fg_key, bg_key in pairs:
@@ -103,6 +117,54 @@ def main() -> None:
     print("Contrast ratios (lowest first):")
     for ratio, fg_key, bg_key, fg_hex, bg_hex in results:
         print(f"{fg_key} on {bg_key}: {fg_hex} / {bg_hex} -> {ratio:.2f}:1")
+
+    # Diff-specific checks.
+    diff_token_keys = [
+        "editor.foreground",
+        "diffEditor.insertedTextBackground",
+        "diffEditor.removedTextBackground",
+        "diffEditor.insertedLineBackground",
+        "diffEditor.removedLineBackground",
+    ]
+
+    if editor_bg_rgba and all(colors.get(key) for key in diff_token_keys):
+        editor_fg_rgb = resolve_rgb(colors["editor.foreground"], editor_bg_rgba)
+        inserted_text_rgb = resolve_rgb(colors["diffEditor.insertedTextBackground"], editor_bg_rgba)
+        removed_text_rgb = resolve_rgb(colors["diffEditor.removedTextBackground"], editor_bg_rgba)
+        inserted_line_rgb = resolve_rgb(colors["diffEditor.insertedLineBackground"], editor_bg_rgba)
+        removed_line_rgb = resolve_rgb(colors["diffEditor.removedLineBackground"], editor_bg_rgba)
+
+        diff_results = [
+            (
+                "editor.foreground on diffEditor.insertedTextBackground",
+                contrast_ratio(editor_fg_rgb, inserted_text_rgb),
+                4.5,
+                "AA text readability",
+            ),
+            (
+                "editor.foreground on diffEditor.removedTextBackground",
+                contrast_ratio(editor_fg_rgb, removed_text_rgb),
+                4.5,
+                "AA text readability",
+            ),
+            (
+                "diffEditor.insertedTextBackground vs diffEditor.removedTextBackground",
+                contrast_ratio(inserted_text_rgb, removed_text_rgb),
+                1.2,
+                "non-text distinguishability",
+            ),
+            (
+                "diffEditor.insertedLineBackground vs diffEditor.removedLineBackground",
+                contrast_ratio(inserted_line_rgb, removed_line_rgb),
+                1.2,
+                "non-text distinguishability",
+            ),
+        ]
+
+        print("\nDiff accessibility checks:")
+        for label, ratio, threshold, criteria in diff_results:
+            status = "PASS" if ratio >= threshold else "WARN"
+            print(f"{label}: {ratio:.2f}:1 [{status}] ({criteria}, threshold {threshold:.1f}:1)")
 
 
 if __name__ == "__main__":
