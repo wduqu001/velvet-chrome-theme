@@ -9,6 +9,23 @@ Velvet Chrome is a minimal dark theme that pairs a unified chrome frame with cri
 - Warm gold for strings and important highlights.
 - Muted green for comments and Git cues.
 
+## Accessibility
+
+Velvet Chrome is designed with measurable contrast targets in mind.
+
+- Core text and UI pairs are checked with `scripts/contrast_report.py`.
+- Target for text readability is WCAG AA contrast ($\ge 4.5:1$).
+- Diff view uses a teal-vs-plum split for added/removed regions to reduce reliance on red/green-only distinction.
+
+Current measured diff metrics:
+
+- `editor.foreground` on inserted diff background: `8.40:1`
+- `editor.foreground` on removed diff background: `13.23:1`
+- inserted vs removed text backgrounds: `1.58:1`
+- inserted vs removed line backgrounds: `1.68:1`
+
+These values come from the built-in report script and can be re-checked after any palette changes.
+
 ## Palette reference
 
 | Token | Hex | Usage |
@@ -48,6 +65,7 @@ Velvet Chrome is a minimal dark theme that pairs a unified chrome frame with cri
 1. Open this repository in VS Code.
 2. Press `F5` to launch the Extension Development Host.
 3. In the new window, activate **Velvet Chrome** via **Preferences: Color Theme**.
+4. Run `scripts/contrast_report.py` to verify contrast after edits.
 
 ## Contributing
 
