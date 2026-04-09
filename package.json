@@ -3,7 +3,7 @@
   "displayName": "Velvet Chrome",
   "description": "A minimal dark VS Code theme with a unified chrome frame and split cyan-violet accents.",
   "icon": "assets/icon/icon.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "publisher": "willduque",
   "author": "Willian Duque",
   "license": "GPL-3.0-only",

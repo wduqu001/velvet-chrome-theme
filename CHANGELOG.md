@@ -5,6 +5,14 @@ All notable changes to the "velvet-chrome-theme" extension will be documented in
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
 
+## [0.0.4] - 2026-04-09
+
+### Added
+
+- Comprehensive support for inline merge conflicts (`merge.*`) using the theme's purple and green palette.
+- Support for the modern 3-way merge editor (`mergeEditor.*`).
+- Conflict borders aligned with theme gold (`#E6C36A`) for better visibility.
+
 ## [0.0.3] - 2026-03-02
 
 ### Changed
